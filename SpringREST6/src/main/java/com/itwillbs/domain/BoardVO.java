@@ -51,4 +51,11 @@ public class BoardVO {
 		this.regdate = regdate;
 	}
 	
+	@Override
+	public String toString() {
+		return "BoardVO [bno=" + bno + ", title=" + title + ", content=" + content + ", writer=" + writer + ", viewcnt="
+				+ viewcnt + ", regdate=" + regdate + "]";
+	}
+	
+	
 }

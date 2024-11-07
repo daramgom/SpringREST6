@@ -7,6 +7,7 @@ import java.util.Map;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -174,5 +175,24 @@ public class SampleController1 {
 		// return new ResponseEntity<String>("Result",HttpStatus.NOT_FOUND);
 		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 	}
+	
+	
+	@RequestMapping(value = "/test10", method = RequestMethod.GET)
+	public ResponseEntity<String> test10() {
+		logger.debug(" ( •̀ ω •́ )✧ test10() 실행 ");
+		HttpHeaders respHeaders = new HttpHeaders(); // SpringFramework
+		respHeaders.add("Content-Type", "text/html; charset=UTF-8");
+		
+		String tagData = "<script>";
+		tagData += "alert('REST 컨트롤러로 실행')";
+		tagData += "</script>";
+		
+		// return new ResponseEntity<String>("",HttpStatus.OK);
+		return new ResponseEntity<String>(tagData,respHeaders,HttpStatus.OK);
+	}
+	
+	
+	
+	
 
-}
+}//SampleController1
